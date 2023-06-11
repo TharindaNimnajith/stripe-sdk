@@ -13,20 +13,20 @@ import static com.example.stripesdk.util.Constants.API_KEY;
 @Service
 public class StripeService {
 
-    public ResponseEntity<Session> payment(TransactionData data) throws StripeException {
+    public ResponseEntity<Session> createSession(TransactionData transactionData) throws StripeException {
         Stripe.apiKey = API_KEY;
 
         SessionCreateParams params = SessionCreateParams.builder()
             .setMode(SessionCreateParams.Mode.PAYMENT)
-            .setSuccessUrl(data.getSuccessUrl())
-            .setCancelUrl(data.getCancelUrl())
+            .setSuccessUrl(transactionData.getSuccessUrl())
+            .setCancelUrl(transactionData.getCancelUrl())
             .addLineItem(SessionCreateParams.LineItem.builder()
-                .setQuantity(data.getQuantity())
+                .setQuantity(transactionData.getQuantity())
                 .setPriceData(SessionCreateParams.LineItem.PriceData.builder()
-                    .setCurrency(data.getCurrency())
-                    .setUnitAmount(data.getAmount())
+                    .setCurrency(transactionData.getCurrency())
+                    .setUnitAmount(transactionData.getAmount())
                     .setProductData(SessionCreateParams.LineItem.PriceData.ProductData.builder()
-                        .setName(data.getProductName())
+                        .setName(transactionData.getProductName())
                         .build())
                     .build())
                 .build())
