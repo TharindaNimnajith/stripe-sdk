@@ -9,5 +9,4 @@ public class StripeSdkApplication {
     public static void main(String[] args) {
         SpringApplication.run(StripeSdkApplication.class, args);
     }
-
 }
