@@ -18,7 +18,7 @@ public class StripeController {
     private final StripeService stripeService;
 
     @PostMapping("/create-session")
-    public ResponseEntity<Session> createSession(@RequestBody TransactionData transactionData) throws StripeException {
+    public ResponseEntity<Session> createSession(@RequestBody final TransactionData transactionData) throws StripeException {
         return stripeService.createSession(transactionData);
     }
 

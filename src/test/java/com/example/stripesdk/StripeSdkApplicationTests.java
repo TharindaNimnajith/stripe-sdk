@@ -8,5 +8,6 @@ class StripeSdkApplicationTests {
 
     @Test
     void contextLoads() {
+        // No implementation
     }
 }
